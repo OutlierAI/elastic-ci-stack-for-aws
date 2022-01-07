@@ -10,3 +10,7 @@ if [[ -n "${DOCKER_LOGIN_USER:-}" && "${DOCKER_LOGIN_PLUGIN_ENABLED:-}" == "1" ]
   # shellcheck source=/dev/null
   source /usr/local/buildkite-aws-stack/plugins/docker-login/hooks/pre-command
 fi
+
+if [[ "${SM_SECRETS_HOOKS_ENABLED:-1}" == "1" ]] ; then
+  source /var/lib/buildkite-agent/plugins/sm_secrets/hooks/pre-command
+fi
