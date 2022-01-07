@@ -1,0 +1,8 @@
+#!/bin/bash
+set -eu -o pipefail
+
+if [[ "${SM_SECRETS_HOOKS_ENABLED:-1}" == "1" ]] ; then
+	source /var/lib/buildkite-agent/plugins/sm_secrets/hooks/pre-command
+fi
+
+export BUILDKITE_GIT_CLONE_FLAGS="--single-branch --branch=$BUILDKITE_BRANCH --depth=1"

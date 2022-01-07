@@ -13,3 +13,7 @@ if [[ -n "${BUILDKITE_SECRETS_BUCKET:-}" &&  "${SECRETS_PLUGIN_ENABLED:-}" == "1
   # shellcheck source=/dev/null
   source /usr/local/buildkite-aws-stack/plugins/secrets/hooks/pre-exit
 fi
+
+if [[ "${SM_SECRETS_HOOKS_ENABLED:-1}" == "1" ]] ; then
+  source /var/lib/buildkite-agent/plugins/sm_secrets/hooks/pre-exit
+fi

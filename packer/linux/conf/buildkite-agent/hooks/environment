@@ -130,3 +130,6 @@ if [[ "${DOCKER_USERNS_REMAP:-false}" == "false" ]] ; then
   sudo /usr/bin/fix-buildkite-agent-builds-permissions "${AGENT_DIR}" "${ORG_DIR}" "${PIPELINE_DIR}"
   echo
 fi
+
+export BUILDKITE_SECRETS_PREFIX="buildkite"
+export SM_SECRETS_HOOKS_ENABLED=1
